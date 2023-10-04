@@ -2,8 +2,8 @@ const CONFIG = {
   // profile setting (required)
   profile: {
     name: "Holly",
-    image: "/hello.png", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
-    role: "Growth Analyst",
+    image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
+    role: "Growth PM",
     bio: "My Life Goal is breaking down the barrier of growth through data",
     email: "imhollyday@kakao.com",
     linkedin: "hoonyoungyoon",
@@ -12,15 +12,14 @@ const CONFIG = {
   },
   projects: [
     {
-      name: `(beta)바쁜 사람들`,
+      name: `바쁜 사람들 beta`,
       href: "https://seoinhyeok96-busypeople-streamlit-home-q44zlc.streamlit.app/",
     },
   ],
   // blog setting (required)
   blog: {
     title: "hollyisyoon",
-    description: "Hello, I'm Holly!",
-    theme: "light", // ['light', 'dark', 'auto']
+    description: "Hello I'm holly",
   },
 
   // CONFIG configration (required)
@@ -28,9 +27,6 @@ const CONFIG = {
   since: 2023, // If leave this empty, current year will be used.
   lang: "ko-KR", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
-  seo: {
-    keywords: ["훈영", "hollyyoon", "데이터분석가"],
-  },
 
   // notion configuration (required)
   notionConfig: {
@@ -53,7 +49,7 @@ const CONFIG = {
   utterances: {
     enable: true,
     config: {
-      repo: "hollyyooon/morethan-log",
+      repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO || "",
       "issue-term": "og:title",
       label: "💬 Utterances",
     },
@@ -66,6 +62,7 @@ const CONFIG = {
     },
   },
   isProd: process.env.VERCEL_ENV === "production", // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
+  revalidateTime: 21600 * 7, // revalidate time for [slug], index
 }
 
 module.exports = { CONFIG }
